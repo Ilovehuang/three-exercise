@@ -29,6 +29,25 @@ export default {
       drawAxes(scene){
           var xGeo = new THREE.Geometry()
           xGeo.vertices.push(new THREE.Vector3(0,0,0))
+          xGeo.vertices.push(new THREE.Vector3(3,0,0));
+
+          var xMat = new THREE.LineBasicMaterial({
+              color:0xff000000
+          })
+
+          var yAxis  = new THREE.Line(xGeo,xMat);
+           scene.add(yAxis);
+
+           //z-axis
+           var zGeo = new THREE.Geometry();
+           zGeo.vertices.push(new THREE.Vector3(0,0,0))
+           zGeo.vertices.push(new THREE.Vector3(0, 0, 3));
+
+           var zMat = new THREE.LineBasicMaterial({
+                    color: 0x00ccff
+            });
+           var zAxis = new THREE.Line(zGeo, zMat);
+           scene.add(zAxis);
       }
   }
 }
